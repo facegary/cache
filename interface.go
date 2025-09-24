@@ -12,18 +12,18 @@ func init() {
 
 // Добавить объект
 /* При ttl <= 0 кеш не истекает */
-func Set(key string, value any, ttl time.Duration) {
+func Set(key, value any, ttl time.Duration) {
 	generalStorage.Set(key, value, ttl)
 }
 
 // Получить значение
 /* Вернёт false, если ttl истек */
-func Get(key string) (value any, isExist bool) {
+func Get(key any) (value any, isExist bool) {
 	return generalStorage.Get(key)
 }
 
 // Удалить значение
-func Delete(key string) {
+func Delete(key any) {
 	generalStorage.Delete(key)
 }
 
@@ -33,7 +33,7 @@ func Cleanup() {
 }
 
 // Проверить существует ли кеш по ключу
-func Exists(key string) bool {
+func Exists(key any) bool {
 	return generalStorage.Exists(key)
 }
 
