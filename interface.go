@@ -11,7 +11,7 @@ func init() {
 }
 
 // Добавить объект
-/* При отрицательном ttl кеш не истекает */
+/* При ttl <= 0 кеш не истекает */
 func Set(key string, value any, ttl time.Duration) {
 	generalStorage.Set(key, value, ttl)
 }
